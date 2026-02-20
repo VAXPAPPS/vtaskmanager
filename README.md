@@ -78,5 +78,5 @@ Ensure your development environment is set up for Linux desktop:
    > `build/linux/x64/release/bundle/vtaskmanager`
 
 ---
-*VAXP Organization — Private Project.
+VAXP Organization — Private Project.
 
