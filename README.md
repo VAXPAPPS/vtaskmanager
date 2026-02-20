@@ -80,4 +80,3 @@ Ensure your development environment is set up for Linux desktop:
 ---
 *VAXP Organization — Private Project.
 
-*
