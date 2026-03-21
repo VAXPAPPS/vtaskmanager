@@ -25,7 +25,7 @@ class CategoriesPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                 ),
               ),
               const Spacer(),
@@ -73,7 +73,9 @@ class CategoriesPage extends StatelessWidget {
                     return Center(
                       child: Text(
                         'لا توجد تصنيفات',
-                        style: TextStyle(color: Colors.white.withOpacity(0.3)),
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.3),
+                        ),
                       ),
                     );
                   }
@@ -110,9 +112,9 @@ class CategoriesPage extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: color.withOpacity(0.06),
+            color: color.withValues(alpha: 0.06),
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: color.withOpacity(0.15)),
+            border: Border.all(color: color.withValues(alpha: 0.15)),
           ),
           child: Row(
             children: [
@@ -120,7 +122,7 @@ class CategoriesPage extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.15),
+                  color: color.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Icon(
@@ -136,7 +138,7 @@ class CategoriesPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                   ),
                 ),
               ),
@@ -173,7 +175,7 @@ class CategoriesPage extends StatelessWidget {
                 child: Icon(
                   Icons.delete_outline_rounded,
                   size: 18,
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                 ),
               ),
             ],
@@ -240,9 +242,11 @@ class CategoriesPage extends StatelessWidget {
                   controller: nameController,
                   decoration: InputDecoration(
                     hintText: 'اسم التصنيف',
-                    hintStyle: TextStyle(color: Colors.white.withOpacity(0.2)),
+                    hintStyle: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.2),
+                    ),
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.05),
+                    fillColor: Colors.white.withValues(alpha: 0.05),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
@@ -254,7 +258,7 @@ class CategoriesPage extends StatelessWidget {
                   'اللون',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.white.withValues(alpha: 0.5),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -262,7 +266,7 @@ class CategoriesPage extends StatelessWidget {
                   spacing: 8,
                   runSpacing: 8,
                   children: colors.map((c) {
-                    final isSelected = selectedColor.value == c.value;
+                    final isSelected = selectedColor.toARGB32() == c.toARGB32();
                     return GestureDetector(
                       onTap: () => setDialogState(() => selectedColor = c),
                       child: Container(
@@ -284,7 +288,7 @@ class CategoriesPage extends StatelessWidget {
                   'الأيقونة',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.white.withValues(alpha: 0.5),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -301,12 +305,12 @@ class CategoriesPage extends StatelessWidget {
                         height: 36,
                         decoration: BoxDecoration(
                           color: isSelected
-                              ? selectedColor.withOpacity(0.2)
-                              : Colors.white.withOpacity(0.04),
+                              ? selectedColor.withValues(alpha: 0.2)
+                              : Colors.white.withValues(alpha: 0.04),
                           borderRadius: BorderRadius.circular(8),
                           border: isSelected
                               ? Border.all(
-                                  color: selectedColor.withOpacity(0.5),
+                                  color: selectedColor.withValues(alpha: 0.5),
                                 )
                               : null,
                         ),
@@ -315,7 +319,7 @@ class CategoriesPage extends StatelessWidget {
                           size: 18,
                           color: isSelected
                               ? selectedColor
-                              : Colors.white.withOpacity(0.4),
+                              : Colors.white.withValues(alpha: 0.4),
                         ),
                       ),
                     );
@@ -329,13 +333,15 @@ class CategoriesPage extends StatelessWidget {
                       onPressed: () => Navigator.pop(ctx),
                       child: Text(
                         'إلغاء',
-                        style: TextStyle(color: Colors.white.withOpacity(0.5)),
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.5),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 12),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: selectedColor.withOpacity(0.8),
+                        backgroundColor: selectedColor.withValues(alpha: 0.8),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -347,7 +353,7 @@ class CategoriesPage extends StatelessWidget {
                             CategoryEntity(
                               id: const Uuid().v4(),
                               name: nameController.text.trim(),
-                              colorValue: selectedColor.value,
+                              colorValue: selectedColor.toARGB32(),
                               iconCodePoint: selectedIcon,
                             ),
                           ),

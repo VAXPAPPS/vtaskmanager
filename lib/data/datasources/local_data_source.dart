@@ -1,61 +1,79 @@
-import 'package:hive/hive.dart';
 import '../models/task_model.dart';
 import '../models/category_model.dart';
+import '../../infrastructure/database_service.dart';
 
-/// مصدر البيانات المحلي — يتعامل مع Hive مباشرة
+/// مصدر البيانات المحلي — يتعامل مع SQLite مباشرة
 class LocalDataSource {
-  static const String tasksBoxName = 'tasks';
-  static const String categoriesBoxName = 'categories';
-
-  Box<TaskModel> get _tasksBox => Hive.box<TaskModel>(tasksBoxName);
-  Box<CategoryModel> get _categoriesBox =>
-      Hive.box<CategoryModel>(categoriesBoxName);
-
   // ==================== Tasks ====================
 
-  List<TaskModel> getAllTasks() {
-    return _tasksBox.values.toList();
+  Future<List<TaskModel>> getAllTasks() async {
+    final db = await DatabaseService.database;
+    final rows = await db.query('tasks', orderBy: 'created_at DESC');
+    return rows.map(TaskModel.fromMap).toList();
   }
 
-  TaskModel? getTaskById(String id) {
-    try {
-      return _tasksBox.values.firstWhere((t) => t.id == id);
-    } catch (_) {
-      return null;
-    }
+  Future<TaskModel?> getTaskById(String id) async {
+    final db = await DatabaseService.database;
+    final rows = await db.query(
+      'tasks',
+      where: 'id = ?',
+      whereArgs: [id],
+      limit: 1,
+    );
+    if (rows.isEmpty) return null;
+    return TaskModel.fromMap(rows.first);
   }
 
   Future<void> addTask(TaskModel task) async {
-    await _tasksBox.put(task.id, task);
+    final db = await DatabaseService.database;
+    await db.insert('tasks', task.toMap());
   }
 
   Future<void> updateTask(TaskModel task) async {
-    await _tasksBox.put(task.id, task);
+    final db = await DatabaseService.database;
+    await db.update(
+      'tasks',
+      task.toMap(),
+      where: 'id = ?',
+      whereArgs: [task.id],
+    );
   }
 
   Future<void> deleteTask(String id) async {
-    await _tasksBox.delete(id);
+    final db = await DatabaseService.database;
+    await db.delete('tasks', where: 'id = ?', whereArgs: [id]);
   }
 
   Future<void> deleteAllTasks() async {
-    await _tasksBox.clear();
+    final db = await DatabaseService.database;
+    await db.delete('tasks');
   }
 
   // ==================== Categories ====================
 
-  List<CategoryModel> getAllCategories() {
-    return _categoriesBox.values.toList();
+  Future<List<CategoryModel>> getAllCategories() async {
+    final db = await DatabaseService.database;
+    final rows = await db.query('categories', orderBy: 'name ASC');
+    return rows.map(CategoryModel.fromMap).toList();
   }
 
   Future<void> addCategory(CategoryModel category) async {
-    await _categoriesBox.put(category.id, category);
+    final db = await DatabaseService.database;
+    await db.insert('categories', category.toMap());
   }
 
   Future<void> updateCategory(CategoryModel category) async {
-    await _categoriesBox.put(category.id, category);
+    final db = await DatabaseService.database;
+    await db.update(
+      'categories',
+      category.toMap(),
+      where: 'id = ?',
+      whereArgs: [category.id],
+    );
   }
 
   Future<void> deleteCategory(String id) async {
-    await _categoriesBox.delete(id);
+    final db = await DatabaseService.database;
+    await db.delete('categories', where: 'id = ?', whereArgs: [id]);
   }
 }

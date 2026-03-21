@@ -41,7 +41,7 @@ class _StatsPageState extends State<StatsPage> {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -60,7 +60,7 @@ class _StatsPageState extends State<StatsPage> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                               ),
                             ),
                             const SizedBox(height: 16),
@@ -71,7 +71,9 @@ class _StatsPageState extends State<StatsPage> {
                                       child: Text(
                                         'لا توجد بيانات',
                                         style: TextStyle(
-                                          color: Colors.white.withOpacity(0.3),
+                                          color: Colors.white.withValues(
+                                            alpha: 0.3,
+                                          ),
                                         ),
                                       ),
                                     )
@@ -146,7 +148,7 @@ class _StatsPageState extends State<StatsPage> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white.withOpacity(0.7),
+                                color: Colors.white.withValues(alpha: 0.7),
                               ),
                             ),
                             const SizedBox(height: 16),
@@ -157,7 +159,9 @@ class _StatsPageState extends State<StatsPage> {
                                       child: Text(
                                         'لا توجد بيانات',
                                         style: TextStyle(
-                                          color: Colors.white.withOpacity(0.3),
+                                          color: Colors.white.withValues(
+                                            alpha: 0.3,
+                                          ),
                                         ),
                                       ),
                                     )
@@ -195,7 +199,7 @@ class _StatsPageState extends State<StatsPage> {
                                                 style: TextStyle(
                                                   fontSize: 10,
                                                   color: Colors.white
-                                                      .withOpacity(0.3),
+                                                      .withValues(alpha: 0.3),
                                                 ),
                                               ),
                                             ),
@@ -217,7 +221,9 @@ class _StatsPageState extends State<StatsPage> {
                                                     style: TextStyle(
                                                       fontSize: 10,
                                                       color: Colors.white
-                                                          .withOpacity(0.4),
+                                                          .withValues(
+                                                            alpha: 0.4,
+                                                          ),
                                                     ),
                                                   );
                                                 }
@@ -231,8 +237,8 @@ class _StatsPageState extends State<StatsPage> {
                                           drawVerticalLine: false,
                                           getDrawingHorizontalLine: (_) =>
                                               FlLine(
-                                                color: Colors.white.withOpacity(
-                                                  0.04,
+                                                color: Colors.white.withValues(
+                                                  alpha: 0.04,
                                                 ),
                                                 strokeWidth: 1,
                                               ),
@@ -260,7 +266,7 @@ class _StatsPageState extends State<StatsPage> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: 0.7),
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -298,7 +304,9 @@ class _StatsPageState extends State<StatsPage> {
                                       name,
                                       style: TextStyle(
                                         fontSize: 13,
-                                        color: Colors.white.withOpacity(0.7),
+                                        color: Colors.white.withValues(
+                                          alpha: 0.7,
+                                        ),
                                       ),
                                     ),
                                     const Spacer(),
@@ -307,7 +315,9 @@ class _StatsPageState extends State<StatsPage> {
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.white.withOpacity(0.5),
+                                        color: Colors.white.withValues(
+                                          alpha: 0.5,
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: 8),
@@ -318,7 +328,7 @@ class _StatsPageState extends State<StatsPage> {
                                         child: LinearProgressIndicator(
                                           value: percent,
                                           backgroundColor: Colors.white
-                                              .withOpacity(0.06),
+                                              .withValues(alpha: 0.06),
                                           valueColor:
                                               AlwaysStoppedAnimation<Color>(
                                                 color,
@@ -366,7 +376,7 @@ class _StatsPageState extends State<StatsPage> {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(6)),
             backDrawRodData: BackgroundBarChartRodData(
               show: true,
-              color: colors[i].withOpacity(0.06),
+              color: colors[i].withValues(alpha: 0.06),
             ),
           ),
         ],
@@ -383,9 +393,9 @@ class _StatsPageState extends State<StatsPage> {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.04),
+            color: Colors.white.withValues(alpha: 0.04),
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: Colors.white.withOpacity(0.06)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
           ),
           child: child,
         ),
@@ -405,7 +415,10 @@ class _StatsPageState extends State<StatsPage> {
         const SizedBox(width: 4),
         Text(
           label,
-          style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.5)),
+          style: TextStyle(
+            fontSize: 11,
+            color: Colors.white.withValues(alpha: 0.5),
+          ),
         ),
       ],
     );

@@ -39,9 +39,11 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.06),
+                  color: Colors.white.withValues(alpha: 0.06),
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.white.withOpacity(0.08)),
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.08),
+                  ),
                 ),
                 child: TextField(
                   controller: _searchController,
@@ -49,13 +51,13 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
                   decoration: InputDecoration(
                     hintText: 'بحث في المهام...',
                     hintStyle: TextStyle(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withValues(alpha: 0.3),
                       fontSize: 13,
                     ),
                     prefixIcon: Icon(
                       Icons.search_rounded,
                       size: 18,
-                      color: Colors.white.withOpacity(0.4),
+                      color: Colors.white.withValues(alpha: 0.4),
                     ),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(vertical: 10),
@@ -93,13 +95,13 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
             width: 40,
             decoration: BoxDecoration(
               color: hasFilters
-                  ? const Color(0xFF42A5F5).withOpacity(0.2)
-                  : Colors.white.withOpacity(0.06),
+                  ? const Color(0xFF42A5F5).withValues(alpha: 0.2)
+                  : Colors.white.withValues(alpha: 0.06),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: hasFilters
-                    ? const Color(0xFF42A5F5).withOpacity(0.4)
-                    : Colors.white.withOpacity(0.08),
+                    ? const Color(0xFF42A5F5).withValues(alpha: 0.4)
+                    : Colors.white.withValues(alpha: 0.08),
               ),
             ),
             child: Icon(
@@ -109,7 +111,7 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
               size: 18,
               color: hasFilters
                   ? const Color(0xFF42A5F5)
-                  : Colors.white.withOpacity(0.5),
+                  : Colors.white.withValues(alpha: 0.5),
             ),
           ),
         );
@@ -133,9 +135,9 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
         return Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.04),
+            color: Colors.white.withValues(alpha: 0.04),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white.withOpacity(0.06)),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,7 +254,7 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
       style: TextStyle(
         fontSize: 11,
         fontWeight: FontWeight.w600,
-        color: Colors.white.withOpacity(0.4),
+        color: Colors.white.withValues(alpha: 0.4),
         letterSpacing: 0.5,
       ),
     );
@@ -278,13 +280,13 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           color: selected
-              ? Colors.white.withOpacity(0.12)
-              : Colors.white.withOpacity(0.04),
+              ? Colors.white.withValues(alpha: 0.12)
+              : Colors.white.withValues(alpha: 0.04),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: selected
-                ? Colors.white.withOpacity(0.3)
-                : Colors.white.withOpacity(0.08),
+                ? Colors.white.withValues(alpha: 0.3)
+                : Colors.white.withValues(alpha: 0.08),
           ),
         ),
         child: Text(
@@ -292,7 +294,9 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
           style: TextStyle(
             fontSize: 12,
             fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-            color: selected ? Colors.white : Colors.white.withOpacity(0.6),
+            color: selected
+                ? Colors.white
+                : Colors.white.withValues(alpha: 0.6),
           ),
         ),
       ),
@@ -336,13 +340,13 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           color: selected
-              ? chipColor.withOpacity(0.15)
-              : Colors.white.withOpacity(0.04),
+              ? chipColor.withValues(alpha: 0.15)
+              : Colors.white.withValues(alpha: 0.04),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: selected
-                ? chipColor.withOpacity(0.4)
-                : Colors.white.withOpacity(0.08),
+                ? chipColor.withValues(alpha: 0.4)
+                : Colors.white.withValues(alpha: 0.08),
           ),
         ),
         child: Text(
@@ -350,7 +354,7 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
           style: TextStyle(
             fontSize: 12,
             fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-            color: selected ? chipColor : Colors.white.withOpacity(0.6),
+            color: selected ? chipColor : Colors.white.withValues(alpha: 0.6),
           ),
         ),
       ),
@@ -383,13 +387,13 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           color: selected
-              ? Colors.white.withOpacity(0.12)
-              : Colors.white.withOpacity(0.04),
+              ? Colors.white.withValues(alpha: 0.12)
+              : Colors.white.withValues(alpha: 0.04),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: selected
-                ? Colors.white.withOpacity(0.3)
-                : Colors.white.withOpacity(0.08),
+                ? Colors.white.withValues(alpha: 0.3)
+                : Colors.white.withValues(alpha: 0.08),
           ),
         ),
         child: Text(
@@ -397,7 +401,9 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
           style: TextStyle(
             fontSize: 12,
             fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-            color: selected ? Colors.white : Colors.white.withOpacity(0.6),
+            color: selected
+                ? Colors.white
+                : Colors.white.withValues(alpha: 0.6),
           ),
         ),
       ),

@@ -1,8 +1,7 @@
-import 'package:hive/hive.dart';
 import '../../domain/entities/category_entity.dart';
 
-/// Hive Model للتصنيف
-class CategoryModel extends HiveObject {
+/// Model تخزين التصنيف في قاعدة SQLite
+class CategoryModel {
   String id;
   String name;
   int colorValue;
@@ -32,38 +31,22 @@ class CategoryModel extends HiveObject {
       iconCodePoint: iconCodePoint,
     );
   }
-}
 
-/// Hive Adapter يدوي لـ CategoryModel
-class CategoryModelAdapter extends TypeAdapter<CategoryModel> {
-  @override
-  final int typeId = 1;
-
-  @override
-  CategoryModel read(BinaryReader reader) {
-    final numFields = reader.readByte();
-    final fields = <int, dynamic>{};
-    for (int i = 0; i < numFields; i++) {
-      fields[reader.readByte()] = reader.read();
-    }
+  factory CategoryModel.fromMap(Map<String, dynamic> map) {
     return CategoryModel(
-      id: fields[0] as String,
-      name: fields[1] as String,
-      colorValue: fields[2] as int,
-      iconCodePoint: fields[3] as int,
+      id: map['id'] as String,
+      name: map['name'] as String,
+      colorValue: map['color_value'] as int,
+      iconCodePoint: map['icon_code_point'] as int,
     );
   }
 
-  @override
-  void write(BinaryWriter writer, CategoryModel obj) {
-    writer.writeByte(4);
-    writer.writeByte(0);
-    writer.write(obj.id);
-    writer.writeByte(1);
-    writer.write(obj.name);
-    writer.writeByte(2);
-    writer.write(obj.colorValue);
-    writer.writeByte(3);
-    writer.write(obj.iconCodePoint);
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'color_value': colorValue,
+      'icon_code_point': iconCodePoint,
+    };
   }
 }

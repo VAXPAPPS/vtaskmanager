@@ -3,15 +3,15 @@ import 'package:vtaskmanager/core/colors/vaxp_colors.dart';
 import 'package:window_manager/window_manager.dart';
 import 'core/theme/vaxp_theme.dart';
 import 'package:venom_config/venom_config.dart';
-import 'infrastructure/hive_service.dart';
+import 'infrastructure/database_service.dart';
 import 'presentation/app_shell.dart';
 
 Future<void> main() async {
   // Initialize Flutter bindings first to ensure the binary messenger is ready
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Hive (local database)
-  await HiveService.init();
+  // Initialize SQLite local database
+  await DatabaseService.init();
 
   // Initialize Venom Config System
   await VenomConfig().init();

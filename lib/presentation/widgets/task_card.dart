@@ -36,13 +36,13 @@ class TaskCard extends StatelessWidget {
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: task.isOverdue
-                  ? const Color(0xFFFF4444).withOpacity(0.06)
-                  : Colors.white.withOpacity(0.06),
+                  ? const Color(0xFFFF4444).withValues(alpha: 0.06)
+                  : Colors.white.withValues(alpha: 0.06),
               borderRadius: BorderRadius.circular(14),
               border: Border.all(
                 color: task.isOverdue
-                    ? const Color(0xFFFF4444).withOpacity(0.2)
-                    : Colors.white.withOpacity(0.08),
+                    ? const Color(0xFFFF4444).withValues(alpha: 0.2)
+                    : Colors.white.withValues(alpha: 0.08),
               ),
             ),
             child: Column(
@@ -61,8 +61,8 @@ class TaskCard extends StatelessWidget {
                               ? TextDecoration.lineThrough
                               : null,
                           color: task.status == TaskStatus.done
-                              ? Colors.white.withOpacity(0.4)
-                              : Colors.white.withOpacity(0.9),
+                              ? Colors.white.withValues(alpha: 0.4)
+                              : Colors.white.withValues(alpha: 0.9),
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -80,7 +80,7 @@ class TaskCard extends StatelessWidget {
                     task.description,
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.white.withOpacity(0.4),
+                      color: Colors.white.withValues(alpha: 0.4),
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -109,7 +109,7 @@ class TaskCard extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: Color(
                                     cat.colorValue,
-                                  ).withOpacity(0.15),
+                                  ).withValues(alpha: 0.15),
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Text(
@@ -139,7 +139,7 @@ class TaskCard extends StatelessWidget {
                             size: 12,
                             color: task.isOverdue
                                 ? const Color(0xFFFF4444)
-                                : Colors.white.withOpacity(0.35),
+                                : Colors.white.withValues(alpha: 0.35),
                           ),
                           const SizedBox(width: 3),
                           Text(
@@ -148,7 +148,7 @@ class TaskCard extends StatelessWidget {
                               fontSize: 10,
                               color: task.isOverdue
                                   ? const Color(0xFFFF4444)
-                                  : Colors.white.withOpacity(0.35),
+                                  : Colors.white.withValues(alpha: 0.35),
                               fontWeight: task.isOverdue
                                   ? FontWeight.w600
                                   : FontWeight.w400,
@@ -169,7 +169,9 @@ class TaskCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4),
                           child: LinearProgressIndicator(
                             value: task.subtaskProgress,
-                            backgroundColor: Colors.white.withOpacity(0.08),
+                            backgroundColor: Colors.white.withValues(
+                              alpha: 0.08,
+                            ),
                             valueColor: AlwaysStoppedAnimation<Color>(
                               task.subtaskProgress == 1.0
                                   ? const Color(0xFF4CAF50)
@@ -184,7 +186,7 @@ class TaskCard extends StatelessWidget {
                         '${task.subtasks.where((s) => s.isCompleted).length}/${task.subtasks.length}',
                         style: TextStyle(
                           fontSize: 10,
-                          color: Colors.white.withOpacity(0.35),
+                          color: Colors.white.withValues(alpha: 0.35),
                         ),
                       ),
                     ],
@@ -231,12 +233,14 @@ class TaskCard extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 2),
               padding: const EdgeInsets.symmetric(vertical: 4),
               decoration: BoxDecoration(
-                color: isActive ? color.withOpacity(0.2) : Colors.transparent,
+                color: isActive
+                    ? color.withValues(alpha: 0.2)
+                    : Colors.transparent,
                 borderRadius: BorderRadius.circular(6),
                 border: Border.all(
                   color: isActive
-                      ? color.withOpacity(0.4)
-                      : Colors.white.withOpacity(0.06),
+                      ? color.withValues(alpha: 0.4)
+                      : Colors.white.withValues(alpha: 0.06),
                 ),
               ),
               child: Center(
@@ -245,7 +249,9 @@ class TaskCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 10,
                     fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
-                    color: isActive ? color : Colors.white.withOpacity(0.35),
+                    color: isActive
+                        ? color
+                        : Colors.white.withValues(alpha: 0.35),
                   ),
                 ),
               ),

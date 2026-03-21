@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/task_bloc/task_bloc.dart';
@@ -26,7 +25,7 @@ class KanbanPage extends StatelessWidget {
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w700,
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
             ),
           ),
           const SizedBox(height: 16),
@@ -101,13 +100,13 @@ class KanbanPage extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             decoration: BoxDecoration(
               color: isHovering
-                  ? color.withOpacity(0.08)
-                  : Colors.white.withOpacity(0.02),
+                  ? color.withValues(alpha: 0.08)
+                  : Colors.white.withValues(alpha: 0.02),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
                 color: isHovering
-                    ? color.withOpacity(0.3)
-                    : Colors.white.withOpacity(0.05),
+                    ? color.withValues(alpha: 0.3)
+                    : Colors.white.withValues(alpha: 0.05),
                 width: isHovering ? 2 : 1,
               ),
             ),
@@ -129,7 +128,7 @@ class KanbanPage extends StatelessWidget {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: color.withOpacity(0.4),
+                              color: color.withValues(alpha: 0.4),
                               blurRadius: 6,
                             ),
                           ],
@@ -141,7 +140,7 @@ class KanbanPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: 0.7),
                         ),
                       ),
                       const SizedBox(width: 6),
@@ -151,7 +150,7 @@ class KanbanPage extends StatelessWidget {
                           vertical: 2,
                         ),
                         decoration: BoxDecoration(
-                          color: color.withOpacity(0.15),
+                          color: color.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(
@@ -175,7 +174,7 @@ class KanbanPage extends StatelessWidget {
                             'اسحب مهمة هنا',
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.white.withOpacity(0.15),
+                              color: Colors.white.withValues(alpha: 0.15),
                             ),
                           ),
                         )

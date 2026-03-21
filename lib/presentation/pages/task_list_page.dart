@@ -28,7 +28,7 @@ class TaskListPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                 ),
               ),
               const Spacer(),
@@ -46,7 +46,7 @@ class TaskListPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFF42A5F5).withOpacity(0.2),
+                        color: const Color(0xFF42A5F5).withValues(alpha: 0.2),
                         blurRadius: 12,
                         offset: const Offset(0, 4),
                       ),
@@ -87,7 +87,7 @@ class TaskListPage extends StatelessWidget {
                     '${state.filteredTasks.length} مهمة',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.white.withOpacity(0.35),
+                      color: Colors.white.withValues(alpha: 0.35),
                     ),
                   ),
                 );
@@ -132,7 +132,9 @@ class TaskListPage extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFF4444).withOpacity(0.15),
+                            color: const Color(
+                              0xFFFF4444,
+                            ).withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(14),
                           ),
                           child: const Icon(

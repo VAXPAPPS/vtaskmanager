@@ -31,7 +31,7 @@ The application is built on the latest and best Flutter ecosystem technologies, 
   - `flutter_bloc` & `bloc`: For robust and decoupled event and state management across the app.
   - `equatable`: For easy comparison of entity and state objects.
 - **Local Storage:**
-  - `hive` & `hive_flutter`: A lightweight, lightning-fast NoSQL database operating without the need for code generation (No Code Gen) to avoid SDK conflicts.
+  - `sqflite` & `sqflite_common_ffi`: Stable local SQLite storage for mobile and desktop without tying the app to Hive adapters.
 - **UI & Analytics:**
   - `fl_chart`: For rendering professional pie and bar charts in the statistics view.
   - `window_manager`: For desktop window control (hiding the native title bar, setting dimensions).
@@ -79,4 +79,3 @@ Ensure your development environment is set up for Linux desktop:
 
 ---
 VAXP Organization — Private Project.
-

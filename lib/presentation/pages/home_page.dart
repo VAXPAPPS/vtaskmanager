@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.w700,
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
             ),
           ),
           const SizedBox(height: 4),
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             'إليك ملخص مهامك',
             style: TextStyle(
               fontSize: 14,
-              color: Colors.white.withOpacity(0.4),
+              color: Colors.white.withValues(alpha: 0.4),
             ),
           ),
           const SizedBox(height: 24),
@@ -102,9 +102,11 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.04),
+                      color: Colors.white.withValues(alpha: 0.04),
                       borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: Colors.white.withOpacity(0.06)),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.06),
+                      ),
                     ),
                     child: Row(
                       children: [
@@ -118,7 +120,9 @@ class _HomePageState extends State<HomePage> {
                               CircularProgressIndicator(
                                 value: stats.completionRate,
                                 strokeWidth: 5,
-                                backgroundColor: Colors.white.withOpacity(0.06),
+                                backgroundColor: Colors.white.withValues(
+                                  alpha: 0.06,
+                                ),
                                 valueColor: const AlwaysStoppedAnimation<Color>(
                                   Color(0xFF42A5F5),
                                 ),
@@ -143,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white.withOpacity(0.8),
+                                color: Colors.white.withValues(alpha: 0.8),
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -151,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                               '${stats.completedTasks} من ${stats.totalTasks} مهمة مكتملة',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.white.withOpacity(0.4),
+                                color: Colors.white.withValues(alpha: 0.4),
                               ),
                             ),
                           ],
@@ -174,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withValues(alpha: 0.7),
                 ),
               ),
               const Spacer(),
@@ -197,10 +201,10 @@ class _HomePageState extends State<HomePage> {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF42A5F5).withOpacity(0.12),
+                    color: const Color(0xFF42A5F5).withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: const Color(0xFF42A5F5).withOpacity(0.3),
+                      color: const Color(0xFF42A5F5).withValues(alpha: 0.3),
                     ),
                   ),
                   child: const Row(
@@ -241,13 +245,13 @@ class _HomePageState extends State<HomePage> {
                           Icon(
                             Icons.inbox_rounded,
                             size: 48,
-                            color: Colors.white.withOpacity(0.15),
+                            color: Colors.white.withValues(alpha: 0.15),
                           ),
                           const SizedBox(height: 12),
                           Text(
                             'لا توجد مهام بعد',
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.3),
+                              color: Colors.white.withValues(alpha: 0.3),
                             ),
                           ),
                         ],
@@ -297,9 +301,9 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.04),
+              color: Colors.white.withValues(alpha: 0.04),
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: Colors.white.withOpacity(0.06)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -308,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                   width: 36,
                   height: 36,
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.12),
+                    color: color.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(icon, size: 18, color: color),
@@ -319,7 +323,7 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -327,7 +331,7 @@ class _HomePageState extends State<HomePage> {
                   label,
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white.withOpacity(0.4),
+                    color: Colors.white.withValues(alpha: 0.4),
                   ),
                 ),
               ],

@@ -60,7 +60,9 @@ class PriorityBadge extends StatelessWidget {
         decoration: BoxDecoration(
           color: _color,
           shape: BoxShape.circle,
-          boxShadow: [BoxShadow(color: _color.withOpacity(0.4), blurRadius: 4)],
+          boxShadow: [
+            BoxShadow(color: _color.withValues(alpha: 0.4), blurRadius: 4),
+          ],
         ),
       );
     }
@@ -68,9 +70,9 @@ class PriorityBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: _color.withOpacity(0.15),
+        color: _color.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: _color.withOpacity(0.3)),
+        border: Border.all(color: _color.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

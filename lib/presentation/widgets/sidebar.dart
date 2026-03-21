@@ -24,9 +24,9 @@ class Sidebar extends StatelessWidget {
     return Container(
       width: 68,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.03),
+        color: Colors.white.withValues(alpha: 0.03),
         border: Border(
-          right: BorderSide(color: Colors.white.withOpacity(0.06)),
+          right: BorderSide(color: Colors.white.withValues(alpha: 0.06)),
         ),
       ),
       child: Column(
@@ -99,7 +99,7 @@ class Sidebar extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   color: selected
-                      ? const Color(0xFF42A5F5).withOpacity(0.12)
+                      ? const Color(0xFF42A5F5).withValues(alpha: 0.12)
                       : Colors.transparent,
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -108,7 +108,7 @@ class Sidebar extends StatelessWidget {
                   size: 22,
                   color: selected
                       ? const Color(0xFF42A5F5)
-                      : Colors.white.withOpacity(0.4),
+                      : Colors.white.withValues(alpha: 0.4),
                 ),
               ),
             ),
@@ -125,7 +125,7 @@ class Sidebar extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
-        child: Icon(icon, size: 22, color: Colors.white.withOpacity(0.3)),
+        child: Icon(icon, size: 22, color: Colors.white.withValues(alpha: 0.3)),
       ),
     );
   }

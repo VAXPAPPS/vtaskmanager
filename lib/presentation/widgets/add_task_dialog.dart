@@ -173,7 +173,9 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                       onPressed: () => Navigator.pop(context),
                       child: Text(
                         'إلغاء',
-                        style: TextStyle(color: Colors.white.withOpacity(0.5)),
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.5),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -181,7 +183,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(
                           0xFF42A5F5,
-                        ).withOpacity(0.8),
+                        ).withValues(alpha: 0.8),
                         padding: const EdgeInsets.symmetric(
                           horizontal: 24,
                           vertical: 12,
@@ -237,7 +239,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
       style: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w600,
-        color: Colors.white.withOpacity(0.5),
+        color: Colors.white.withValues(alpha: 0.5),
       ),
     );
   }
@@ -245,16 +247,19 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
   InputDecoration _inputDecoration(String hint) {
     return InputDecoration(
       hintText: hint,
-      hintStyle: TextStyle(color: Colors.white.withOpacity(0.2), fontSize: 13),
+      hintStyle: TextStyle(
+        color: Colors.white.withValues(alpha: 0.2),
+        fontSize: 13,
+      ),
       filled: true,
-      fillColor: Colors.white.withOpacity(0.05),
+      fillColor: Colors.white.withValues(alpha: 0.05),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.white.withOpacity(0.08)),
+        borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.white.withOpacity(0.08)),
+        borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
@@ -268,9 +273,9 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white.withOpacity(0.08)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<Priority>(
@@ -297,9 +302,9 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white.withOpacity(0.08)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<TaskStatus>(
@@ -351,13 +356,13 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
           color: selected
-              ? chipColor.withOpacity(0.15)
-              : Colors.white.withOpacity(0.04),
+              ? chipColor.withValues(alpha: 0.15)
+              : Colors.white.withValues(alpha: 0.04),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: selected
-                ? chipColor.withOpacity(0.4)
-                : Colors.white.withOpacity(0.08),
+                ? chipColor.withValues(alpha: 0.4)
+                : Colors.white.withValues(alpha: 0.08),
           ),
         ),
         child: Row(
@@ -375,7 +380,9 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
               label,
               style: TextStyle(
                 fontSize: 12,
-                color: selected ? chipColor : Colors.white.withOpacity(0.5),
+                color: selected
+                    ? chipColor
+                    : Colors.white.withValues(alpha: 0.5),
                 fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
               ),
             ),
@@ -412,16 +419,16 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white.withOpacity(0.08)),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
         ),
         child: Row(
           children: [
             Icon(
               Icons.calendar_today_rounded,
               size: 16,
-              color: Colors.white.withOpacity(0.4),
+              color: Colors.white.withValues(alpha: 0.4),
             ),
             const SizedBox(width: 8),
             Text(
@@ -431,8 +438,8 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
               style: TextStyle(
                 fontSize: 13,
                 color: _dueDate != null
-                    ? Colors.white.withOpacity(0.8)
-                    : Colors.white.withOpacity(0.3),
+                    ? Colors.white.withValues(alpha: 0.8)
+                    : Colors.white.withValues(alpha: 0.3),
               ),
             ),
             const Spacer(),
@@ -442,7 +449,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                 child: Icon(
                   Icons.clear,
                   size: 16,
-                  color: Colors.white.withOpacity(0.3),
+                  color: Colors.white.withValues(alpha: 0.3),
                 ),
               ),
           ],
@@ -475,7 +482,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                     size: 18,
                     color: st.isCompleted
                         ? const Color(0xFF4CAF50)
-                        : Colors.white.withOpacity(0.3),
+                        : Colors.white.withValues(alpha: 0.3),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -488,8 +495,8 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                           ? TextDecoration.lineThrough
                           : null,
                       color: st.isCompleted
-                          ? Colors.white.withOpacity(0.3)
-                          : Colors.white.withOpacity(0.7),
+                          ? Colors.white.withValues(alpha: 0.3)
+                          : Colors.white.withValues(alpha: 0.7),
                     ),
                   ),
                 ),
@@ -500,7 +507,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                   child: Icon(
                     Icons.close,
                     size: 14,
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                   ),
                 ),
               ],
@@ -517,7 +524,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                 decoration: InputDecoration(
                   hintText: 'أضف مهمة فرعية...',
                   hintStyle: TextStyle(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     fontSize: 12,
                   ),
                   border: InputBorder.none,
@@ -531,7 +538,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
               child: Icon(
                 Icons.add_circle_outline,
                 size: 18,
-                color: Colors.white.withOpacity(0.3),
+                color: Colors.white.withValues(alpha: 0.3),
               ),
             ),
           ],

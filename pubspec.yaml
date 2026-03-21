@@ -43,8 +43,9 @@ dependencies:
   equatable: ^2.0.7
 
   # Local Storage
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
+  sqflite: ^2.4.2
+  sqflite_common_ffi: ^2.3.6
+  path: ^1.9.1
 
   # Utilities
   uuid: ^4.5.1

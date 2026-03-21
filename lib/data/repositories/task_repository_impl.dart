@@ -11,13 +11,13 @@ class TaskRepositoryImpl implements TaskRepository {
 
   @override
   Future<List<TaskEntity>> getAllTasks() async {
-    final models = _localDataSource.getAllTasks();
+    final models = await _localDataSource.getAllTasks();
     return models.map((m) => m.toEntity()).toList();
   }
 
   @override
   Future<TaskEntity?> getTaskById(String id) async {
-    final model = _localDataSource.getTaskById(id);
+    final model = await _localDataSource.getTaskById(id);
     return model?.toEntity();
   }
 

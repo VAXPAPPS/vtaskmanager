@@ -11,7 +11,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
 
   @override
   Future<List<CategoryEntity>> getAllCategories() async {
-    final models = _localDataSource.getAllCategories();
+    final models = await _localDataSource.getAllCategories();
     return models.map((m) => m.toEntity()).toList();
   }
 
