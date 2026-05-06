@@ -40,7 +40,7 @@ class KanbanPage extends StatelessWidget {
                     children: [
                       _buildColumn(
                         context,
-                        'للتنفيذ',
+                        'Implementation',
                         TaskStatus.todo,
                         state.allTasks
                             .where((t) => t.status == TaskStatus.todo)
@@ -50,7 +50,7 @@ class KanbanPage extends StatelessWidget {
                       const SizedBox(width: 12),
                       _buildColumn(
                         context,
-                        'قيد التنفيذ',
+                        'In Progress',
                         TaskStatus.inProgress,
                         state.allTasks
                             .where((t) => t.status == TaskStatus.inProgress)
@@ -60,7 +60,7 @@ class KanbanPage extends StatelessWidget {
                       const SizedBox(width: 12),
                       _buildColumn(
                         context,
-                        'مكتملة',
+                        'Done',
                         TaskStatus.done,
                         state.allTasks
                             .where((t) => t.status == TaskStatus.done)
@@ -171,7 +171,7 @@ class KanbanPage extends StatelessWidget {
                   child: tasks.isEmpty
                       ? Center(
                           child: Text(
-                            'اسحب مهمة هنا',
+                            'Drag a task here',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.white.withValues(alpha: 0.15),

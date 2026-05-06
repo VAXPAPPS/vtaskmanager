@@ -49,7 +49,7 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
                   controller: _searchController,
                   style: const TextStyle(fontSize: 14),
                   decoration: InputDecoration(
-                    hintText: 'بحث في المهام...',
+                    hintText: 'Searching for tasks...',
                     hintStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.3),
                       fontSize: 13,
@@ -143,44 +143,44 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // فلتر الحالة
-              _sectionLabel('الحالة'),
+              _sectionLabel('Status'),
               const SizedBox(height: 6),
               Wrap(
                 spacing: 6,
                 children: [
-                  _statusChip('الكل', null, currentStatusFilter),
-                  _statusChip('للتنفيذ', TaskStatus.todo, currentStatusFilter),
+                  _statusChip('All', null, currentStatusFilter),
+                  _statusChip('To Do', TaskStatus.todo, currentStatusFilter),
                   _statusChip(
-                    'قيد التنفيذ',
+                    'In Progress',
                     TaskStatus.inProgress,
                     currentStatusFilter,
                   ),
-                  _statusChip('مكتملة', TaskStatus.done, currentStatusFilter),
+                  _statusChip('Done', TaskStatus.done, currentStatusFilter),
                 ],
               ),
               const SizedBox(height: 12),
 
               // فلتر الأولوية
-              _sectionLabel('الأولوية'),
+              _sectionLabel('Priority'),
               const SizedBox(height: 6),
               Wrap(
                 spacing: 6,
                 children: [
-                  _priorityChip('الكل', null, currentPriorityFilter),
-                  _priorityChip('عاجل', Priority.urgent, currentPriorityFilter),
-                  _priorityChip('مرتفع', Priority.high, currentPriorityFilter),
+                  _priorityChip('All', null, currentPriorityFilter),
+                  _priorityChip('Urgent', Priority.urgent, currentPriorityFilter),
+                  _priorityChip('High', Priority.high, currentPriorityFilter),
                   _priorityChip(
-                    'متوسط',
+                    'Medium',
                     Priority.medium,
                     currentPriorityFilter,
                   ),
-                  _priorityChip('منخفض', Priority.low, currentPriorityFilter),
+                  _priorityChip('Low', Priority.low, currentPriorityFilter),
                 ],
               ),
               const SizedBox(height: 12),
 
               // فلتر التصنيف
-              _sectionLabel('التصنيف'),
+              _sectionLabel('Category'),
               const SizedBox(height: 6),
               BlocBuilder<CategoryBloc, CategoryState>(
                 builder: (context, catState) {
@@ -190,7 +190,7 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
                     runSpacing: 6,
                     children: [
                       _categoryFilterChip(
-                        'الكل',
+                        'All',
                         null,
                         null,
                         null,
@@ -236,7 +236,7 @@ class _TaskSearchBarState extends State<TaskSearchBar> {
                     },
                     icon: const Icon(Icons.clear_all, size: 16),
                     label: const Text(
-                      'مسح الفلاتر',
+                      'Clear filters',
                       style: TextStyle(fontSize: 12),
                     ),
                   ),

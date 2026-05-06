@@ -37,7 +37,7 @@ class _StatsPageState extends State<StatsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'الإحصائيات',
+                  'Statistics',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
@@ -56,7 +56,7 @@ class _StatsPageState extends State<StatsPage> {
                         child: Column(
                           children: [
                             Text(
-                              'توزيع المهام',
+                              'Task Distribution',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -69,7 +69,7 @@ class _StatsPageState extends State<StatsPage> {
                               child: stats.totalTasks == 0
                                   ? Center(
                                       child: Text(
-                                        'لا توجد بيانات',
+                                        'No data available',
                                         style: TextStyle(
                                           color: Colors.white.withValues(
                                             alpha: 0.3,
@@ -126,11 +126,11 @@ class _StatsPageState extends State<StatsPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                _legend('للتنفيذ', const Color(0xFF78909C)),
+                                _legend('To Do', const Color(0xFF78909C)),
                                 const SizedBox(width: 16),
-                                _legend('جاري', const Color(0xFFFF9800)),
+                                _legend('In Progress', const Color(0xFFFF9800)),
                                 const SizedBox(width: 16),
-                                _legend('مكتمل', const Color(0xFF4CAF50)),
+                                _legend('Completed', const Color(0xFF4CAF50)),
                               ],
                             ),
                           ],
@@ -144,7 +144,7 @@ class _StatsPageState extends State<StatsPage> {
                         child: Column(
                           children: [
                             Text(
-                              'حسب الأولوية',
+                              'By Priority',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -157,7 +157,7 @@ class _StatsPageState extends State<StatsPage> {
                               child: stats.tasksByPriority.isEmpty
                                   ? Center(
                                       child: Text(
-                                        'لا توجد بيانات',
+                                        'No data available',
                                         style: TextStyle(
                                           color: Colors.white.withValues(
                                             alpha: 0.3,
@@ -209,10 +209,10 @@ class _StatsPageState extends State<StatsPage> {
                                               showTitles: true,
                                               getTitlesWidget: (v, _) {
                                                 final labels = [
-                                                  'عاجل',
-                                                  'مرتفع',
-                                                  'متوسط',
-                                                  'منخفض',
+                                                  'Urgent',
+                                                  'High',
+                                                  'Medium',
+                                                  'Low',
                                                 ];
                                                 if (v.toInt() >= 0 &&
                                                     v.toInt() < labels.length) {
@@ -262,7 +262,7 @@ class _StatsPageState extends State<StatsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'حسب التصنيف',
+                        'By Category',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -280,7 +280,7 @@ class _StatsPageState extends State<StatsPage> {
                               final cat = catState.categories
                                   .where((c) => c.id == e.key)
                                   .firstOrNull;
-                              final name = cat?.name ?? 'بدون تصنيف';
+                              final name = cat?.name ?? 'Uncategorized';
                               final color = cat != null
                                   ? Color(cat.colorValue)
                                   : Colors.grey;

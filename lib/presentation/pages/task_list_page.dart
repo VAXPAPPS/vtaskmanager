@@ -24,7 +24,7 @@ class TaskListPage extends StatelessWidget {
           Row(
             children: [
               Text(
-                'المهام',
+                'Tasks',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
@@ -58,7 +58,7 @@ class TaskListPage extends StatelessWidget {
                       Icon(Icons.add_rounded, size: 18, color: Colors.white),
                       SizedBox(width: 6),
                       Text(
-                        'مهمة جديدة',
+                        'New Task',
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
@@ -84,7 +84,7 @@ class TaskListPage extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    '${state.filteredTasks.length} مهمة',
+                    '${state.filteredTasks.length} tasks',
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.white.withValues(alpha: 0.35),
@@ -110,10 +110,10 @@ class TaskListPage extends StatelessWidget {
                       message:
                           state.searchQuery.isNotEmpty ||
                               state.statusFilter != null
-                          ? 'لا توجد نتائج مطابقة'
-                          : 'لا توجد مهام بعد — أضف أول مهمة!',
+                          ? 'No matching results'
+                          : 'No tasks yet — Add your first task!',
                       actionLabel: state.searchQuery.isEmpty
-                          ? 'إضافة مهمة'
+                          ? 'Add Task'
                           : null,
                       onAction: state.searchQuery.isEmpty
                           ? () => _showAddDialog(context)
@@ -147,17 +147,17 @@ class TaskListPage extends StatelessWidget {
                             context: context,
                             builder: (ctx) => AlertDialog(
                               backgroundColor: const Color(0xFF1A1A1A),
-                              title: const Text('حذف المهمة'),
-                              content: Text('هل تريد حذف "${task.title}"؟'),
+                              title: const Text('Delete task'),
+                              content: Text('Are you sure you want to delete "${task.title}"?'),
                               actions: [
                                 TextButton(
                                   onPressed: () => Navigator.pop(ctx, false),
-                                  child: const Text('إلغاء'),
+                                  child: const Text('Cancel'),
                                 ),
                                 TextButton(
                                   onPressed: () => Navigator.pop(ctx, true),
                                   child: const Text(
-                                    'حذف',
+                                    'Delete',
                                     style: TextStyle(color: Color(0xFFFF4444)),
                                   ),
                                 ),

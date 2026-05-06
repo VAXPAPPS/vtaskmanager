@@ -211,9 +211,9 @@ class TaskCard extends StatelessWidget {
       children: TaskStatus.values.map((status) {
         final isActive = task.status == status;
         final label = switch (status) {
-          TaskStatus.todo => 'للتنفيذ',
-          TaskStatus.inProgress => 'جاري',
-          TaskStatus.done => 'مكتمل',
+          TaskStatus.todo => 'implementation',
+          TaskStatus.inProgress => 'in progress',
+          TaskStatus.done => 'done',
         };
         final color = switch (status) {
           TaskStatus.todo => const Color(0xFF78909C),

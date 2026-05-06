@@ -28,13 +28,13 @@ class PriorityBadge extends StatelessWidget {
   String get _label {
     switch (priority) {
       case Priority.urgent:
-        return 'عاجل';
+        return 'urgent';
       case Priority.high:
-        return 'مرتفع';
+        return 'high';
       case Priority.medium:
-        return 'متوسط';
+        return 'medium';
       case Priority.low:
-        return 'منخفض';
+        return 'low';
     }
   }
 

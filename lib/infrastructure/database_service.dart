@@ -80,25 +80,25 @@ class DatabaseService {
     final defaults = [
       CategoryEntity(
         id: uuid.v4(),
-        name: 'عمل',
+        name: 'ajob',
         colorValue: Colors.blue.toARGB32(),
         iconCodePoint: Icons.work_outline.codePoint,
       ),
       CategoryEntity(
         id: uuid.v4(),
-        name: 'شخصي',
+        name: 'Personal',
         colorValue: Colors.green.toARGB32(),
         iconCodePoint: Icons.person_outline.codePoint,
       ),
       CategoryEntity(
         id: uuid.v4(),
-        name: 'دراسة',
+        name: 'Study',
         colorValue: Colors.purple.toARGB32(),
         iconCodePoint: Icons.school_outlined.codePoint,
       ),
       CategoryEntity(
         id: uuid.v4(),
-        name: 'مشاريع',
+        name: 'Projects',
         colorValue: Colors.orange.toARGB32(),
         iconCodePoint: Icons.rocket_launch_outlined.codePoint,
       ),

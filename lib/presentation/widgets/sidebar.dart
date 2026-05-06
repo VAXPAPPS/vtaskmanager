@@ -12,11 +12,11 @@ class Sidebar extends StatelessWidget {
   });
 
   static const _items = [
-    _SidebarItem(icon: Icons.dashboard_rounded, label: 'الرئيسية'),
-    _SidebarItem(icon: Icons.list_alt_rounded, label: 'المهام'),
+    _SidebarItem(icon: Icons.dashboard_rounded, label: 'Home'),
+    _SidebarItem(icon: Icons.list_alt_rounded, label: 'Tasks'),
     _SidebarItem(icon: Icons.view_kanban_rounded, label: 'Kanban'),
-    _SidebarItem(icon: Icons.category_rounded, label: 'التصنيفات'),
-    _SidebarItem(icon: Icons.bar_chart_rounded, label: 'الإحصائيات'),
+    _SidebarItem(icon: Icons.category_rounded, label: 'Categories'),
+    _SidebarItem(icon: Icons.bar_chart_rounded, label: 'Statistics'),
   ];
 
   @override
@@ -57,7 +57,7 @@ class Sidebar extends StatelessWidget {
           }),
           const Spacer(),
           // إعدادات
-          _buildBottomItem(Icons.settings_outlined, 'إعدادات'),
+          _buildBottomItem(Icons.settings_outlined, 'Settings'),
           const SizedBox(height: 16),
         ],
       ),

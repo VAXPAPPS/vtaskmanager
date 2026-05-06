@@ -80,7 +80,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      _isEditing ? 'تعديل المهمة' : 'مهمة جديدة',
+                      _isEditing ? 'Edit Task': 'New Task',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
@@ -97,25 +97,25 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                 const SizedBox(height: 20),
 
                 // عنوان المهمة
-                _label('العنوان'),
+                _label('Title'),
                 const SizedBox(height: 6),
                 TextFormField(
                   controller: _titleController,
                   style: const TextStyle(fontSize: 14),
-                  decoration: _inputDecoration('أدخل عنوان المهمة'),
+                  decoration: _inputDecoration('Enter task title'),
                   validator: (v) =>
-                      v == null || v.trim().isEmpty ? 'العنوان مطلوب' : null,
+                      v == null || v.trim().isEmpty ? 'Title is required' : null,
                 ),
                 const SizedBox(height: 16),
 
                 // الوصف
-                _label('الوصف'),
+                _label('Description'),
                 const SizedBox(height: 6),
                 TextFormField(
                   controller: _descController,
                   style: const TextStyle(fontSize: 14),
                   maxLines: 3,
-                  decoration: _inputDecoration('وصف تفصيلي (اختياري)'),
+                  decoration: _inputDecoration('Enter detailed description (optional)'),
                 ),
                 const SizedBox(height: 16),
 
@@ -126,7 +126,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _label('الأولوية'),
+                          _label('Priority'),
                           const SizedBox(height: 6),
                           _buildPrioritySelector(),
                         ],
@@ -137,7 +137,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _label('الحالة'),
+                          _label('Status'),
                           const SizedBox(height: 6),
                           _buildStatusSelector(),
                         ],
@@ -148,19 +148,19 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                 const SizedBox(height: 16),
 
                 // التصنيف
-                _label('التصنيف'),
+                _label('Category'),
                 const SizedBox(height: 6),
                 _buildCategorySelector(),
                 const SizedBox(height: 16),
 
                 // تاريخ الاستحقاق
-                _label('تاريخ الاستحقاق'),
+                _label('Due Date'),
                 const SizedBox(height: 6),
                 _buildDatePicker(),
                 const SizedBox(height: 16),
 
                 // المهام الفرعية
-                _label('المهام الفرعية'),
+                _label('Subtasks'),
                 const SizedBox(height: 6),
                 _buildSubtasks(),
                 const SizedBox(height: 24),
@@ -172,7 +172,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                     TextButton(
                       onPressed: () => Navigator.pop(context),
                       child: Text(
-                        'إلغاء',
+                        'Cancel',
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.5),
                         ),
@@ -194,7 +194,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                       ),
                       onPressed: _submit,
                       child: Text(
-                        _isEditing ? 'حفظ التعديلات' : 'إضافة المهمة',
+                        _isEditing ? 'Save Changes' : 'Add Task',
                       ),
                     ),
                   ],
@@ -285,10 +285,10 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
           style: const TextStyle(fontSize: 13),
           items: Priority.values.map((p) {
             final label = switch (p) {
-              Priority.urgent => '🔴 عاجل',
-              Priority.high => '🟠 مرتفع',
-              Priority.medium => '🔵 متوسط',
-              Priority.low => '⚪ منخفض',
+              Priority.urgent => '🔴 Urgent',
+              Priority.high => '🟠 High',
+              Priority.medium => '🔵 Medium',
+              Priority.low => '⚪ Low',
             };
             return DropdownMenuItem(value: p, child: Text(label));
           }).toList(),
@@ -314,9 +314,9 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
           style: const TextStyle(fontSize: 13),
           items: TaskStatus.values.map((s) {
             final label = switch (s) {
-              TaskStatus.todo => '📋 للتنفيذ',
-              TaskStatus.inProgress => '🔄 قيد التنفيذ',
-              TaskStatus.done => '✅ مكتملة',
+              TaskStatus.todo => '📋 To Do',
+              TaskStatus.inProgress => '🔄 In Progress',
+              TaskStatus.done => '✅ Done',
             };
             return DropdownMenuItem(value: s, child: Text(label));
           }).toList(),
@@ -335,7 +335,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
           spacing: 6,
           runSpacing: 6,
           children: [
-            _catChip('بدون', null, null, null),
+            _catChip('without', null, null, null),
             ...cats.map(
               (c) =>
                   _catChip(c.name, c.id, Color(c.colorValue), c.iconCodePoint),
@@ -434,7 +434,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
             Text(
               _dueDate != null
                   ? '${_dueDate!.year}/${_dueDate!.month}/${_dueDate!.day}'
-                  : 'اختر تاريخ...',
+                  : 'Select Date...',
               style: TextStyle(
                 fontSize: 13,
                 color: _dueDate != null
@@ -522,7 +522,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                 controller: _subtaskController,
                 style: const TextStyle(fontSize: 13),
                 decoration: InputDecoration(
-                  hintText: 'أضف مهمة فرعية...',
+                  hintText: 'Add subtask...',
                   hintStyle: TextStyle(
                     color: Colors.white.withValues(alpha: 0.2),
                     fontSize: 12,

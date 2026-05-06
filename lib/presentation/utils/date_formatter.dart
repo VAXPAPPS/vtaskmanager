@@ -21,11 +21,11 @@ class DateFormatter {
     final diff = now.difference(date);
 
     if (diff.inDays == 0) {
-      return 'اليوم ${_timeAgo.format(date)}';
+      return 'today ${_timeAgo.format(date)}';
     } else if (diff.inDays == 1) {
-      return 'أمس';
+      return 'yesterday';
     } else if (diff.inDays < 7) {
-      return 'قبل ${diff.inDays} أيام';
+      return '${diff.inDays} days ago';
     } else {
       return formatDate(date);
     }
@@ -38,10 +38,10 @@ class DateFormatter {
     final due = DateTime(dueDate.year, dueDate.month, dueDate.day);
     final diff = due.difference(today).inDays;
 
-    if (diff < 0) return 'متأخر بـ ${-diff} يوم';
-    if (diff == 0) return 'اليوم';
-    if (diff == 1) return 'غدًا';
-    if (diff < 7) return 'بعد $diff أيام';
+    if (diff < 0) return 'overdue by ${-diff} days';
+    if (diff == 0) return 'today';
+    if (diff == 1) return 'tomorrow';
+    if (diff < 7) return 'in $diff days';
     return formatDate(dueDate);
   }
 }

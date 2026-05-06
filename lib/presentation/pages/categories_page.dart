@@ -21,7 +21,7 @@ class CategoriesPage extends StatelessWidget {
           Row(
             children: [
               Text(
-                'التصنيفات',
+                'Categories',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
@@ -48,7 +48,7 @@ class CategoriesPage extends StatelessWidget {
                       Icon(Icons.add_rounded, size: 18, color: Colors.white),
                       SizedBox(width: 6),
                       Text(
-                        'تصنيف جديد',
+                        'New Category',
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
@@ -72,7 +72,7 @@ class CategoriesPage extends StatelessWidget {
                   if (state.categories.isEmpty) {
                     return Center(
                       child: Text(
-                        'لا توجد تصنيفات',
+                        'No categories yet — Add your first category!',
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.3),
                         ),
@@ -149,12 +149,12 @@ class CategoriesPage extends StatelessWidget {
                     context: context,
                     builder: (ctx) => AlertDialog(
                       backgroundColor: const Color(0xFF1A1A1A),
-                      title: const Text('حذف التصنيف'),
-                      content: Text('هل تريد حذف "${cat.name}"؟'),
+                      title: const Text('Delete Category'),
+                      content: Text('Are you sure you want to delete "${cat.name}"?'),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(ctx),
-                          child: const Text('إلغاء'),
+                          child: const Text('Cancel'),
                         ),
                         TextButton(
                           onPressed: () {
@@ -164,7 +164,7 @@ class CategoriesPage extends StatelessWidget {
                             Navigator.pop(ctx);
                           },
                           child: const Text(
-                            'حذف',
+                            'Delete',
                             style: TextStyle(color: Color(0xFFFF4444)),
                           ),
                         ),
@@ -234,14 +234,14 @@ class CategoriesPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'تصنيف جديد',
+                  'New Category',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 20),
                 TextField(
                   controller: nameController,
                   decoration: InputDecoration(
-                    hintText: 'اسم التصنيف',
+                    hintText: 'Category Name',
                     hintStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.2),
                     ),
@@ -255,7 +255,7 @@ class CategoriesPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'اللون',
+                  'Color',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white.withValues(alpha: 0.5),
@@ -285,7 +285,7 @@ class CategoriesPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'الأيقونة',
+                  'Icon',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white.withValues(alpha: 0.5),
@@ -332,7 +332,7 @@ class CategoriesPage extends StatelessWidget {
                     TextButton(
                       onPressed: () => Navigator.pop(ctx),
                       child: Text(
-                        'إلغاء',
+                        'Cancel',
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.5),
                         ),
@@ -360,7 +360,7 @@ class CategoriesPage extends StatelessWidget {
                         );
                         Navigator.pop(ctx);
                       },
-                      child: const Text('إضافة'),
+                      child: const Text('Add Category'),
                     ),
                   ],
                 ),

@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           // الترحيب
           Text(
-            'مرحبًا 👋',
+            'Hello 👋',
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.w700,
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 4),
           Text(
-            'إليك ملخص مهامك',
+            'Here is a summary of your tasks',
             style: TextStyle(
               fontSize: 14,
               color: Colors.white.withValues(alpha: 0.4),
@@ -60,28 +60,28 @@ class _HomePageState extends State<HomePage> {
               return Row(
                 children: [
                   _statCard(
-                    'إجمالي المهام',
+                    'Total Tasks',
                     '${stats.totalTasks}',
                     Icons.list_alt_rounded,
                     const Color(0xFF42A5F5),
                   ),
                   const SizedBox(width: 12),
                   _statCard(
-                    'مكتملة',
+                    'Completed',
                     '${stats.completedTasks}',
                     Icons.check_circle_rounded,
                     const Color(0xFF4CAF50),
                   ),
                   const SizedBox(width: 12),
                   _statCard(
-                    'قيد التنفيذ',
+                    'In Progress',
                     '${stats.inProgressTasks}',
                     Icons.pending_rounded,
                     const Color(0xFFFF9800),
                   ),
                   const SizedBox(width: 12),
                   _statCard(
-                    'متأخرة',
+                    'Overdue',
                     '${stats.overdueTasks}',
                     Icons.warning_rounded,
                     const Color(0xFFFF4444),
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'نسبة الإنجاز',
+                              'Completion Rate',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              '${stats.completedTasks} من ${stats.totalTasks} مهمة مكتملة',
+                              '${stats.completedTasks} of ${stats.totalTasks} tasks completed',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.white.withValues(alpha: 0.4),
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
           Row(
             children: [
               Text(
-                'المهام الأخيرة',
+                'Recent Tasks',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -213,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                       Icon(Icons.add, size: 16, color: Color(0xFF42A5F5)),
                       SizedBox(width: 4),
                       Text(
-                        'مهمة جديدة',
+                        'New Task',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -249,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            'لا توجد مهام بعد',
+                            'No tasks available',
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.3),
                             ),
