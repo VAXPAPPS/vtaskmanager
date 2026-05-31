@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=vtaskmanager
+Comment=Flutter Application - vtaskmanager
+Exec=/usr/bin/vtaskmanager
+Icon=/usr/share/icons/hicolor/256x256/apps/vtaskmanager.png
+Terminal=false
+Categories=Utility;Development;
