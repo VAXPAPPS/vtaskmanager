@@ -36,11 +36,11 @@ class _AppShellState extends State<AppShell> {
   ];
 
   static const _titles = [
-    'الرئيسية',
-    'المهام',
+    'Home',
+    'Tasks',
     'Kanban Board',
-    'التصنيفات',
-    'الإحصائيات',
+    'Categories',
+    'Statistics',
   ];
 
   late final LocalDataSource _localDataSource;
